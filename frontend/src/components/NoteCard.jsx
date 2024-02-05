@@ -8,7 +8,7 @@ function NoteCard({note}) {
     const navigate = useNavigate();
 
     return (
-        <div className={`${dark ? "dark" : ""}`} onClick={(e)=>navigate(`/dashboard/${note._id}`)}>
+        <div className={`${dark ? "dark" : ""} cursor-pointer`} onClick={(e)=>navigate(`/dashboard/${note._id}`)}>
             <div className={`p-4 my-3 inline-flex flex-col rounded-lg`} style={{backgroundColor:note.color}}>
                 <div className='text-2xl mb-2'>{note.title}</div>
                 <div>{note.text}</div>

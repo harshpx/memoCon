@@ -22,9 +22,32 @@ const create = async (data,token) => {
     return res.data;
 }
 
+const update = async (data,token) => {
+    const noteID = data.id;
+    const config = {
+        headers: {
+            Authorization: `Bearer ${token}`
+        }
+    }
+    const res = await axios.put(API_ENDPOINT+noteID,data,config);
+    return res.data;
+}
+
+const _delete = async (noteID,token) => {
+    const config = {
+        headers: {
+            Authorization: `Bearer ${token}`
+        }
+    }
+    const res = await axios.delete(API_ENDPOINT+noteID,config);
+    return res.data;
+}
+
 const noteService = {
     getAll,
     create,
+    update,
+    _delete,
 }
 
 export default noteService;

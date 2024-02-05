@@ -9,6 +9,7 @@ const initialState = {
     message: '',
 }
 
+// fetch all notes
 export const getNotes = createAsyncThunk('notes/get',async (_,thunkAPI)=>{
     try {
         const token = thunkAPI.getState().auth.user.token;
@@ -19,10 +20,33 @@ export const getNotes = createAsyncThunk('notes/get',async (_,thunkAPI)=>{
     }
 })
 
+// create note
 export const createNote = createAsyncThunk('notes/create', async(data,thunkAPI)=>{
     try {
         const token = thunkAPI.getState().auth.user.token;
         return await noteService.create(data,token);
+    } catch (error) {
+        const message = (error.response && error.response.data && error.response.data.message) || error.message || error.toString();
+        return thunkAPI.rejectWithValue(message);
+    }
+})
+
+// update note
+export const updateNote = createAsyncThunk('notes/update', async(data,thunkAPI)=>{
+    try {
+        const token = thunkAPI.getState().auth.user.token;
+        return await noteService.update(data,token);
+    } catch (error) {
+        const message = (error.response && error.response.data && error.response.data.message) || error.message || error.toString();
+        return thunkAPI.rejectWithValue(message);
+    }
+})
+
+// delete note
+export const deleteNote = createAsyncThunk('notes/delete', async(noteID,thunkAPI)=>{
+    try {
+        const token = thunkAPI.getState().auth.user.token;
+        return await noteService._delete(noteID,token);
     } catch (error) {
         const message = (error.response && error.response.data && error.response.data.message) || error.message || error.toString();
         return thunkAPI.rejectWithValue(message);
@@ -57,12 +81,42 @@ const noteSlice = createSlice({
         .addCase(createNote.rejected,(state,action)=>{
             state.isLoading = false;
             state.isError = true;
+            state.message = action.payload;
         })
         .addCase(createNote.fulfilled,(state,action)=>{
             state.isLoading = false;
             state.isSuccess = true;
             state.notes.push(action.payload);
         })
+        .addCase(updateNote.pending,(state)=>{
+            state.isLoading = true;
+        })
+        .addCase(updateNote.rejected,(state,action)=>{
+            state.isLoading = false;
+            state.isError = true;
+            state.message = action.payload;
+        })
+        .addCase(updateNote.fulfilled,(state,action)=>{
+            state.isLoading = false;
+            state.isSuccess = true;
+            state.notes = state.notes.map(note=>(
+                note._id==action.payload._id ? action.payload : note
+            ))
+        })
+        .addCase(deleteNote.pending,(state)=>{
+            state.isLoading = true;
+        })
+        .addCase(deleteNote.rejected,(state,action)=>{
+            state.isLoading = false;
+            state.isError = true;
+            state.message = action.payload;
+        })
+        .addCase(deleteNote.fulfilled,(state,action)=>{
+            state.isLoading = false;
+            state.isSuccess = true;
+            state.notes = state.notes.filter(note=>(note._id!=action.payload._id))
+        })
+
 
     }
 })

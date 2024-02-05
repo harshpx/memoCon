@@ -32,7 +32,7 @@ export const deleteNote = asyncHandler(async (req,res)=>{
         throw new Error("Current User not authorized to delete this note");
     }
     await noteModel.findByIdAndDelete(req.params.id);
-    res.json({message:"note deleted successfully"});
+    res.status(200).json({_id:req.params.id});
 });
 
 export const updateNote = asyncHandler(async (req,res)=>{
@@ -50,6 +50,7 @@ export const updateNote = asyncHandler(async (req,res)=>{
         throw new Error("Current User not authorized to update this note");
     }
     const updatedNote = await noteModel.findByIdAndUpdate(req.params.id,{
+        title:req.body.title,
         text:req.body.text,
         color: req.body.color ? req.body.color : color
     },{new: true});
