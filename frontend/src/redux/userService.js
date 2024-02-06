@@ -22,10 +22,21 @@ const logout = ()=>{
     localStorage.clear();
 }
 
+const updateDP = async (fileData,token)=>{
+    const config = {
+        headers: {
+            Authorization: `Bearer ${token}`
+        }
+    }
+    const res = await axios.put(API_ENDPOINT+"uploadDP",fileData,config);
+    return res.data;
+}
+
 const userService = {
     signup,
     login,
     logout,
+    updateDP,
 }
 
 export default userService;

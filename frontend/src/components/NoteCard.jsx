@@ -9,9 +9,9 @@ function NoteCard({note}) {
 
     return (
         <div className={`${dark ? "dark" : ""} cursor-pointer`} onClick={(e)=>navigate(`/dashboard/${note._id}`)}>
-            <div className={`p-4 my-3 inline-flex flex-col rounded-lg`} style={{backgroundColor:note.color}}>
-                <div className='text-2xl mb-2'>{note.title}</div>
-                <div>{note.text}</div>
+            <div className={`p-4 my-3 inline-flex flex-col rounded-lg brightness-110 dark:brightness-80 dark:text-white ${note.color=='none' ? "border-2 border-zinc-600 dark:border-zinc-300" : ""} hover:scale-105 transition-all duration-200`} style={{backgroundColor:note.color}}>
+                <div className='text-2xl mb-6'>{note.title}</div>
+                <div className=''>{note.text}</div>
             </div>
         </div>
     )

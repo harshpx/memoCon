@@ -16,7 +16,7 @@ function Register() {
 
 	useEffect(()=>{
 		if(isError) toast.error(message);
-        if(isSuccess || user) navigate('/dashboard');
+        if(isSuccess || user) navigate('/profilePicture');
         dispatch(reset());
 	},[user,isSuccess,isError,message])
 
@@ -38,7 +38,6 @@ function Register() {
 		}
 		const data = {name,username,email,password};
 		dispatch(userSignup(data));
-		console.log(data);
 	}
 
 	return (
@@ -66,7 +65,7 @@ function Register() {
 							<input type="password" name="password2" id="password2" className='m-1 p-2 w-full border-2 border-gray-400 rounded-lg dark:bg-black dark:border-gray-600' placeholder='Confirm password'/>
 						</div>
 						
-						<button type="submit" className='mt-6 p-2 w-1/2 bg-theme rounded-2xl transition-all duration-300 text-white hover:scale-105 hover:bg-gray-300 hover:text-black'>Register</button>
+						<button type="submit" className='mt-6 p-2 w-1/2 bg-theme rounded-2xl transition-all duration-300 text-white hover:scale-105 hover:bg-neutral-400 hover:text-black'>Register</button>
 					</form>
 				</div>
 			</div>

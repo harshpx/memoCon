@@ -74,7 +74,7 @@ function Login() {
 						</div>
 						<input type="text" name="data" id="data" className='m-1 p-2 w-full border-2 border-gray-400 rounded-lg dark:bg-black dark:border-gray-600' placeholder={dataType}/>
 						<input type="password" name="password" id="password" className='m-1 p-2 w-full border-2 border-gray-400 rounded-lg dark:bg-black dark:border-gray-600' placeholder='password'/>
-						<button type="submit" className='mt-6 p-2 w-1/2 bg-theme rounded-2xl transition-all duration-300 text-white hover:scale-105 hover:bg-gray-200 hover:text-black'>Login</button>
+						<button type="submit" className='mt-6 p-2 w-1/2 bg-theme rounded-2xl transition-all duration-300 text-white hover:scale-105 hover:bg-neutral-400 hover:text-black'>Login</button>
 					</form>
 				</div>
 			</div>

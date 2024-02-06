@@ -98,8 +98,9 @@ export const userDpUpload = asyncHandler(async (req,res)=>{
     const response = await imageUploadOnCloud('./uploads/temp.png');
     const updatedUser = await userModel.findByIdAndUpdate(req.user._id,{dp:response.url},{new:true});
     res.json({
-        _id:updatedUser._id,
-        username:updatedUser.username,
-        dp:updatedUser.dp,
-    })
+        name: updatedUser.name,
+        username: updatedUser.username,
+        dp: updatedUser.dp,
+        token: generateToken(updatedUser._id)
+    });
 });

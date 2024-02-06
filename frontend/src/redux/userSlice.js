@@ -32,7 +32,17 @@ export const userLogin = createAsyncThunk('auth/login', async (data,thunkAPI)=>{
 })
 
 export const userLogout = createAsyncThunk('auth/logout',async (_,thunkAPI)=>{
-        userService.logout();
+    userService.logout();
+})
+
+export const userProfilePicture = createAsyncThunk('auth/dp',async(fileData,thunkAPI)=>{
+    try {
+        const token = thunkAPI.getState().auth.user.token;
+        return await userService.updateDP(fileData,token);
+    } catch (error) {
+        const message = (error.response && error.response.data && error.response.data.message) || error.message || error.toString();
+        return thunkAPI.rejectWithValue(message);
+    }
 })
 
 
@@ -83,6 +93,20 @@ const userSlice = createSlice({
             state.isError = false;
             state.message = '';
             state.user = null;
+        })
+        .addCase(userProfilePicture.pending,(state)=>{
+            state.isLoading = true;
+        })
+        .addCase(userProfilePicture.rejected,(state,action)=>{
+            state.isLoading = false;
+            state.isError = true;
+            state.message = action.payload;
+        })
+        .addCase(userProfilePicture.fulfilled,(state,action)=>{
+            state.isLoading = false;
+            state.isSuccess = true;
+            state.user = action.payload;
+            localStorage.setItem('user',JSON.stringify(action.payload));
         })
     }
 })
