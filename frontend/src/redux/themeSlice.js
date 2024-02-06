@@ -4,8 +4,6 @@ const initialState = {
     dark: true,
 };
 
-const temp = 0;
-
 const themeSlice = createSlice({
     name: 'theme',
     initialState,
