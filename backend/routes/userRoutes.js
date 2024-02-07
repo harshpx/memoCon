@@ -8,6 +8,6 @@ const userRoutes = express.Router();
 userRoutes.route('/').post(registerUser);
 userRoutes.route('/login').post(login);
 userRoutes.route('/delete').delete(protectRoute,deleteUser);
-userRoutes.route('/uploadDP').put(protectRoute,upload.single("image"),userDpUpload);
+userRoutes.route('/uploadDP').put(protectRoute,userDpUpload);
 
 export default userRoutes;

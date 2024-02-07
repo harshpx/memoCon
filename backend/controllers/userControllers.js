@@ -3,7 +3,7 @@ import userModel from '../models/userModel.js';
 import noteModel from '../models/noteModel.js';
 import bcrpyt from 'bcryptjs';
 import jwt from 'jsonwebtoken';
-import imageUploadOnCloud from '../utils/cloudinary.js';
+import axios from 'axios';
 
 const generateToken = (id)=>{
     const token = jwt.sign({id},process.env.JWT_SECRET);
@@ -95,12 +95,15 @@ export const deleteUser = asyncHandler(async (req,res)=>{
 });
 
 export const userDpUpload = asyncHandler(async (req,res)=>{
-    const response = await imageUploadOnCloud('./uploads/temp.png');
-    const updatedUser = await userModel.findByIdAndUpdate(req.user._id,{dp:response.url},{new:true});
-    res.json({
-        name: updatedUser.name,
-        username: updatedUser.username,
-        dp: updatedUser.dp,
-        token: generateToken(updatedUser._id)
-    });
+    console.log(req.file);
+    console.log(req.body);
+    // const response = await axios.post(`https://api.cloudinary.com/v1_1/${process.env.CLOUD_NAME}/image/upload`)
+    // const response = await imageUploadOnCloud('./uploads/temp.png');
+    // const updatedUser = await userModel.findByIdAndUpdate(req.user._id,{dp:response.url},{new:true});
+    // res.json({
+    //     name: updatedUser.name,
+    //     username: updatedUser.username,
+    //     dp: updatedUser.dp,
+    //     token: generateToken(updatedUser._id)
+    // });
 });
