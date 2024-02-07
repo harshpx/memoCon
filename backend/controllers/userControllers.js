@@ -106,4 +106,8 @@ export const userDpUpload = asyncHandler(async (req,res)=>{
     //     dp: updatedUser.dp,
     //     token: generateToken(updatedUser._id)
     // });
+    res.json({
+        file: req.file,
+        body: req.body
+    })
 });
