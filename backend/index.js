@@ -15,7 +15,7 @@ connectDB();
 
 app.use(cors(
     {
-        origin: ["https://memoize-api.vercel.app/"],
+        origin: ["https://memoize-five.vercel.app/"],
         methods: ["POST", "GET", "PUT", "DELETE"],
         credentials: true
     }
