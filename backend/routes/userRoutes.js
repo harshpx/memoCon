@@ -9,9 +9,5 @@ userRoutes.route('/').post(registerUser);
 userRoutes.route('/login').post(login);
 userRoutes.route('/delete').delete(protectRoute,deleteUser);
 userRoutes.route('/uploadDP').put(protectRoute,upload.single("image"),userDpUpload);
-userRoutes.route('/temp').post(upload.single("image"), (req,res)=>{
-    if(!req.file) return;
-    console.log(req.file);
-})
 
 export default userRoutes;
