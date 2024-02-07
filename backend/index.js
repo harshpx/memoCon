@@ -13,7 +13,14 @@ const app = express();
 
 connectDB();
 
-app.use(cors());
+app.use(cors(
+    {
+        origin: ["https://memoize-api.vercel.app/"],
+        methods: ["POST", "GET", "PUT", "DELETE"],
+        credentials: true
+    }
+));
+// app.use(cors());
 
 app.use(express.json());
 app.use(express.urlencoded({extended:false}));
