@@ -33,7 +33,7 @@ app.use('/api/users',userRoutes);
 app.use(errorHandler);
 
 const port = process.env.PORT || 5000;
-const server = http.createServer(app);
+// const server = http.createServer(app);
 
 // mongoose.connect(process.env.MONGO_URI).then(()=>{
 //     console.log(`Database connected`);
@@ -44,6 +44,6 @@ const server = http.createServer(app);
 //     console.log(err);
 //     process.exit(1);
 // })
-server.listen(port,()=>{
+app.listen(port,()=>{
     console.log(`Server running on port: ${port}`);
 })
