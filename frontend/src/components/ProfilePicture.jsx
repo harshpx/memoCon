@@ -34,7 +34,7 @@ function ProfilePicture({size}) {
                     style={{height:size||'200px',width:size||'200px'}}
                 />
                 <button
-                    className="absolute -bottom-3 left-0 right-0 m-auto w-fit p-[.35rem] rounded-full dark:bg-gray-800 hover:bg-gray-700 border border-gray-600"
+                    className="absolute -bottom-3 left-0 right-0 m-auto w-fit p-[.35rem] rounded-full dark:bg-gray-800  border border-gray-600"
                     title="Change photo"
                     onClick={() => setCropOpen(true)}
                 >

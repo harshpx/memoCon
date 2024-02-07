@@ -3,21 +3,21 @@ import NoteCard from '../components/NoteCard';
 import Header from '../components/Header';
 import { useSelector, useDispatch } from 'react-redux';
 import { resetNotes, getNotes, createNote } from '../redux/noteSlice';
-import axios from 'axios';
-import { Outlet,useNavigate } from 'react-router-dom';
+import { Outlet, useNavigate, useLocation } from 'react-router-dom';
 import { IoIosAdd } from "react-icons/io";
 import { IoLogoOctocat } from "react-icons/io5";
 import Loader from '../components/Loader';
-
+import { AnimatePresence, motion } from 'framer-motion';
 
 function Dashboard() {
 
 	const {dark} = useSelector(state=>state.theme);
-    const {user,isError,isSuccess,message} = useSelector(state=>state.auth);
+    const {user,userLoading,isError,isSuccess,message} = useSelector(state=>state.auth);
     const {notes,isLoading} = useSelector(state=>state.notes);
 
     const dispatch = useDispatch();
     const navigate = useNavigate();
+    const location = useLocation();
     const ref = useRef(null);
 
     const [takingInput,setTakingInput] = useState(false);
@@ -75,12 +75,11 @@ function Dashboard() {
     // if(isLoading) {
     //     return <Loader />
     // }
+    if(userLoading){
+        return <Loader/>
+    }
     return (
         <>
-            {/* <form onSubmit={submit} method="POST" encType="multipart/form-data">
-                <input type="file" name="image" />
-                <button type='submit' className='border rounded-lg border-black px-1'>submit</button>
-            </form> */}
             
             <div className={`${dark?"dark":""}`}>
                 <Header />
@@ -130,6 +129,7 @@ function Dashboard() {
                     }
                 </div>
             </div>
+
             <Outlet/>
         </>
     )

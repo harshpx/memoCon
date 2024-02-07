@@ -3,6 +3,8 @@ import {BrowserRouter, Route, Routes} from 'react-router-dom'
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import "react-image-crop/dist/ReactCrop.css";
+
+import AnimatedRoutes from './AnimatedRoutes';
 import Dashboard from './pages/Dashboard';
 import Login from './pages/Login';
 import Register from './pages/Register';
@@ -13,21 +15,21 @@ import UploadProfilePicture from './pages/UploadProfilePicture';
 
 function App() {
   return (
-	
     <>
 		<BrowserRouter>
-			<div>
-				<Routes>
+			<Routes>
+				<Route path='/' element={<AnimatedRoutes/>}>
 					<Route path='/' element={<Welcome/>}/>
-					<Route path='/dashboard' element={<Dashboard/>}>
-						<Route path='/dashboard/:id' element={<NoteEdit/>}/>
-						<Route path='/dashboard/settings' element={<UserSettings/>}/>
-					</Route>
+					
 					<Route path='/login' element={<Login/>}/>
 					<Route path='/register' element={<Register/>}/>
 					<Route path='/profilePicture' element={<UploadProfilePicture/>}/>
-				</Routes>
-			</div>
+				</Route>
+				<Route path='/dashboard' element={<Dashboard/>}>
+					<Route path='/dashboard/:id' element={<NoteEdit/>}/>
+					<Route path='/dashboard/settings' element={<UserSettings/>}/>
+				</Route>
+			</Routes>
 		</BrowserRouter>
 		<ToastContainer />
     </>
