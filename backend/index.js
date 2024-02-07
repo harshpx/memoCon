@@ -13,15 +13,13 @@ const app = express();
 
 connectDB();
 
-app.use(cors());
-
-// app.use(cors(
-//     {
-//         origin: ["https://deploy-mern-frontend.vercel.app"],
-//         methods: ["POST", "GET", "PUT", "DELETE"],
-//         credentials: true
-//     }
-// ));
+app.use(cors(
+    {
+        origin: ["https://memoize-7433ax5bf-harsh-priyes-projects.vercel.app/"],
+        methods: ["POST", "GET", "PUT", "DELETE"],
+        credentials: true
+    }
+));
 
 app.use(express.json());
 app.use(express.urlencoded({extended:false}));
