@@ -1,5 +1,6 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import userService from "./userService";
+import axios from 'axios';
 
 const savedUser = JSON.parse(localStorage.getItem('user'));
 
@@ -35,10 +36,21 @@ export const userLogout = createAsyncThunk('auth/logout',async (_,thunkAPI)=>{
     userService.logout();
 })
 
-export const userProfilePicture = createAsyncThunk('auth/dp',async(data,thunkAPI)=>{
+export const userProfilePicture = createAsyncThunk('auth/dp',async(formData,thunkAPI)=>{
     try {
         const token = thunkAPI.getState().auth.user.token;
-        return await userService.updateDP(data,token);
+
+        const response = await axios.post(`https://api.cloudinary.com/v1_1/${String(import.meta.env.VITE_CLOUD_NAME)}/image/upload`,formData);
+        const resJSON = await response.json();
+        return await userService.updateDP({url:resJSON.url},token);
+
+        // fetch(`https://api.cloudinary.com/v1_1/${String(import.meta.env.VITE_CLOUD_NAME)}/image/upload`,{method:"post",body:formData})
+        // .then(response=>response.json())
+        // .then(response=>{console.log(response.url); dispatch(userProfilePicture({url:response.url}));})
+        // .catch(error=>console.log(error))
+
+
+        // return await userService.updateDP(data,token);
     } catch (error) {
         const message = (error.response && error.response.data && error.response.data.message) || error.message || error.toString();
         return thunkAPI.rejectWithValue(message);
