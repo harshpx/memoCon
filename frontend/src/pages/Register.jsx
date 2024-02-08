@@ -6,6 +6,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { userSignup, reset } from '../redux/userSlice';
 import { changeTheme } from '../redux/themeSlice';
 import {useNavigate} from 'react-router-dom';
+import Loader from '../components/Loader';
 
 function Register() {
 
@@ -38,6 +39,10 @@ function Register() {
 		}
 		const data = {name,username,email,password};
 		dispatch(userSignup(data));
+	}
+
+	if(isLoading){
+		return <Loader/>
 	}
 
 	return (

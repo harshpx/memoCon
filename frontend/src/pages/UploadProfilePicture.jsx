@@ -13,7 +13,7 @@ function UploadProfilePicture() {
     const {user,isLoading} = useSelector(state=>state.auth);
 
     useEffect(()=>{
-        if(!user){
+        if(!user || !user?.token){
             navigate('/');
             return;
         }

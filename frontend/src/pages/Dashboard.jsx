@@ -31,7 +31,7 @@ function Dashboard() {
             toast.error(message);
             return;
         }
-        if(!user?.token) {
+        if(!user || !user?.token) {
             navigate('/');
             return;
         }
