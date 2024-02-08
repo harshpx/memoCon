@@ -107,8 +107,13 @@ const dataURLtoFile = (dataurl, filename) => {
         // console.log("Here is JavaScript File Object",fileData)
         // fileArr.push(fileData)
         const formData = new FormData();
-        formData.append('image',fileData);
-        dispatch(userProfilePicture(formData));
+        formData.append('file',fileData);
+        formData.append('upload_preset',`${import.meta.env.CLOUD_UPLOAD_PRESET}`);
+        formData.append('cloud_name',`${import.meta.env.CLOUD_NAME}`);
+        fetch('https://api.cloudinary.com/v1_1/dgx2etbfc/image/upload',{method:"post",body:formData})
+        .then(response=>response.json())
+        .then(response=>dispatch(userProfilePicture(response.url)))
+        .catch(error=>console.log(error))
     })
   }
 

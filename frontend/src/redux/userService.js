@@ -23,13 +23,13 @@ const logout = ()=>{
     localStorage.clear();
 }
 
-const updateDP = async (fileData,token)=>{
+const updateDP = async (url,token)=>{
     const config = {
         headers: {
             Authorization: `Bearer ${token}`
         }
     }
-    const res = await axios.put(API_ENDPOINT+"uploadDP",fileData,config);
+    const res = await axios.put(API_ENDPOINT+"uploadDP",url,config);
     return res.data;
 }
 

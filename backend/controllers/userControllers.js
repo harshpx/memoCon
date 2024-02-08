@@ -95,19 +95,12 @@ export const deleteUser = asyncHandler(async (req,res)=>{
 });
 
 export const userDpUpload = asyncHandler(async (req,res)=>{
-    console.log(req.file);
-    console.log(req.body);
-    // const response = await axios.post(`https://api.cloudinary.com/v1_1/${process.env.CLOUD_NAME}/image/upload`)
-    // const response = await imageUploadOnCloud('./uploads/temp.png');
-    // const updatedUser = await userModel.findByIdAndUpdate(req.user._id,{dp:response.url},{new:true});
-    // res.json({
-    //     name: updatedUser.name,
-    //     username: updatedUser.username,
-    //     dp: updatedUser.dp,
-    //     token: generateToken(updatedUser._id)
-    // });
+   
+    const updatedUser = await userModel.findByIdAndUpdate(req.user._id,{dp:req.body},{new:true});
     res.json({
-        file: req.file,
-        body: req.body
-    })
+        name: updatedUser.name,
+        username: updatedUser.username,
+        dp: updatedUser.dp,
+        token: generateToken(updatedUser._id)
+    });
 });

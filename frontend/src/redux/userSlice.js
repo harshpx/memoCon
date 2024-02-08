@@ -35,10 +35,10 @@ export const userLogout = createAsyncThunk('auth/logout',async (_,thunkAPI)=>{
     userService.logout();
 })
 
-export const userProfilePicture = createAsyncThunk('auth/dp',async(fileData,thunkAPI)=>{
+export const userProfilePicture = createAsyncThunk('auth/dp',async(url,thunkAPI)=>{
     try {
         const token = thunkAPI.getState().auth.user.token;
-        return await userService.updateDP(fileData,token);
+        return await userService.updateDP(url,token);
     } catch (error) {
         const message = (error.response && error.response.data && error.response.data.message) || error.message || error.toString();
         return thunkAPI.rejectWithValue(message);
