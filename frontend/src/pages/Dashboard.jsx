@@ -110,7 +110,7 @@ function Dashboard() {
 
                     </div>
 
-                    {notes.length==0 ? 
+                    {notes?.length==0 ? 
                         <div className='min-h-96 w-full text-gray-500 text-3xl flex flex-col justify-center items-center gap-y-4'>
                             <IoLogoOctocat size={90}/>
                             <h1>Wow such empty!</h1>
