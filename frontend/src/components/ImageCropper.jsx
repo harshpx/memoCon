@@ -113,7 +113,7 @@ const dataURLtoFile = (dataurl, filename) => {
         console.log(String(import.meta.env.VITE_CLOUD_UPLOAD_PRESET), String(import.meta.env.VITE_CLOUD_NAME));
         fetch(`https://api.cloudinary.com/v1_1/${String(import.meta.env.VITE_CLOUD_NAME)}/image/upload`,{method:"post",body:formData})
         .then(response=>response.json())
-        .then(response=>{console.log(response.url); dispatch(userProfilePicture(response.url));})
+        .then(response=>{console.log(response.url); dispatch(userProfilePicture({url:response.url}));})
         .catch(error=>console.log(error))
     })
   }

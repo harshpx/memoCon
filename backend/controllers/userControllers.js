@@ -96,7 +96,7 @@ export const deleteUser = asyncHandler(async (req,res)=>{
 
 export const userDpUpload = asyncHandler(async (req,res)=>{
    
-    const updatedUser = await userModel.findByIdAndUpdate(req.user._id,{dp:req.body},{new:true});
+    const updatedUser = await userModel.findByIdAndUpdate(req.user._id,{dp:req.body.url},{new:true});
     res.json({
         name: updatedUser.name,
         username: updatedUser.username,
