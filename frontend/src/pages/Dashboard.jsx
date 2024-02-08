@@ -116,7 +116,7 @@ function Dashboard() {
                             <IoLogoOctocat size={90}/>
                             <h1>Wow such empty!</h1>
                         </div> : (isLoading ? <Loader/> : 
-                            <div className="columns-2 gap-5 sm:columns-3 sm:gap-5 md:columns-3 lg:columns-4 xl:columns-5 md:px-10">
+                            // <div className="columns-2 gap-5 sm:columns-3 sm:gap-5 md:columns-3 lg:columns-4 xl:columns-5 md:px-10">
                                 
                                 <AnimatePresence>
                                     {notes?.map((note)=>(
@@ -130,7 +130,7 @@ function Dashboard() {
                                     ))}
                                 </AnimatePresence>
                                     
-                            </div>
+                            // </div>
                         )
 
                     }
