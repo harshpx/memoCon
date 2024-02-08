@@ -76,7 +76,7 @@ function NoteEdit() {
                                     <li key={curr} id='curr' className='inline-grid h-8 w-8 mx-0.5 cursor-pointer rounded-full hover:brightness-130 hover:scale-102 transition-all duration-105' style={{backgroundColor:curr, border: noteColor==curr || curr==null ? "1px solid white" : ""}} onClick={()=>setNoteColor(curr)}></li>                            
                                 ))}
                             </ul>
-                            <div className='flex flex-col gap-y-1'>
+                            <div className='flex items-center gap-x-2'>
                                 <button className='bg-theme rounded-2xl p-3 text-white hover:bg-teal-600 transition-all duration-105' onClick={deleteNoteHandler}>
                                     <MdDelete size={25}/>
                                 </button>
