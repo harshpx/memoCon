@@ -118,7 +118,7 @@ function Dashboard() {
                             <div className="columns-2 gap-5 sm:columns-3 sm:gap-5 md:columns-3 lg:columns-4 xl:columns-5 md:px-10">
                                 
                                 <div>
-                                    {notes.map((note)=>(
+                                    {notes?.map((note)=>(
                                         <NoteCard key={note._id} note={note} />
                                     ))}
                                 </div>
