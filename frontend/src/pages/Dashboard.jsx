@@ -124,7 +124,7 @@ function Dashboard() {
                                         initial={{x:'10%'}}
                                         animate={{x:'0%'}}
                                         transition={{duration:0.2, ease:'easeIn'}}
-                                        className='w-full'>
+                                        className='w-full h-screen'>
                                             <NoteCard key={note._id} note={note} />
                                         </motion.div>
                                     ))}
