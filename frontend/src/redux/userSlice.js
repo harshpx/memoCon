@@ -40,9 +40,8 @@ export const userProfilePicture = createAsyncThunk('auth/dp',async(formData,thun
     try {
         const token = thunkAPI.getState().auth.user.token;
         console.log(formData);
-        const response = await axios.post(`https://api.cloudinary.com/v1_1/${String(import.meta.env.VITE_CLOUD_NAME)}/image/upload`,{body:formData});
+        const response = await fetch(`https://api.cloudinary.com/v1_1/${String(import.meta.env.VITE_CLOUD_NAME)}/image/upload`,{method:"post",body:formData});
         const resJSON = await response.json();
-        console.log(resJSON);
         return await userService.updateDP({url:resJSON.url},token);
 
         // fetch(`https://api.cloudinary.com/v1_1/${String(import.meta.env.VITE_CLOUD_NAME)}/image/upload`,{method:"post",body:formData})
