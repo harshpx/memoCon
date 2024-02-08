@@ -120,7 +120,13 @@ function Dashboard() {
                             </div> : 
                             <div className="columns-2 gap-5 sm:columns-3 sm:gap-5 md:columns-3 lg:columns-4 xl:columns-5 md:px-10">
                                     {notes?.map((note)=>(
-                                        <NoteCard key={note._id} note={note} />
+                                        <motion.div
+                                        initial={{x:'10%'}}
+                                        animate={{x:'0%'}}
+                                        transition={{duration:0.2, ease:'easeIn'}}
+                                        className='w-full'>
+                                            <NoteCard key={note._id} note={note} />
+                                        </motion.div>
                                     ))}
                             </div>
                         }
