@@ -111,7 +111,7 @@ const dataURLtoFile = (dataurl, filename) => {
         formData.append('upload_preset',`${import.meta.env.VITE_CLOUD_UPLOAD_PRESET}`);
         formData.append('cloud_name',`${import.meta.env.VITE_CLOUD_NAME}`);
         console.log(String(import.meta.env.VITE_CLOUD_UPLOAD_PRESET), String(import.meta.env.VITE_CLOUD_NAME));
-        fetch(`https://api.cloudinary.com/v1_1/${String(import.meta.env.VITE_CLOUD_NAME)}/image/upload`,{method:"post",body:formData})
+        axios.post(`https://api.cloudinary.com/v1_1/${String(import.meta.env.VITE_CLOUD_NAME)}/image/upload`,formData)
         .then(response=>response.json())
         .then(response=>dispatch(userProfilePicture(response.url)))
         .catch(error=>console.log(error))
