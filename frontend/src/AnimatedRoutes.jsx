@@ -7,7 +7,7 @@ function AnimatedRoutes() {
     const location = useLocation();
     return (
         <AnimatePresence initial={false} mode='sync'>
-            {console.log(location.pathname)}
+            {/* {console.log(location.pathname)} */}
             <motion.div
             key={location.pathname}
             initial={{y:'20%'}}
