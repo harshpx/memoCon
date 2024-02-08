@@ -110,6 +110,7 @@ const dataURLtoFile = (dataurl, filename) => {
         formData.append('file',fileData);
         formData.append('upload_preset',`${import.meta.env.CLOUD_UPLOAD_PRESET}`);
         formData.append('cloud_name',`${import.meta.env.CLOUD_NAME}`);
+        console.log(import.meta.env.CLOUD_UPLOAD_PRESET, import.meta.env.CLOUD_NAME);
         fetch(`https://api.cloudinary.com/v1_1/${import.meta.env.CLOUD_NAME}/image/upload`,{method:"post",body:formData})
         .then(response=>response.json())
         .then(response=>dispatch(userProfilePicture(response.url)))
