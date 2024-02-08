@@ -16,6 +16,18 @@ function UserSettings() {
     const ref = useRef(null);
 
     useEffect(()=>{
+        if(isError){
+            toast.error(message);
+            return;
+        }
+        if(!user?.token) {
+            navigate('/');
+            return;
+        }
+    },[user])
+
+
+    useEffect(()=>{
         const outsideClickHandler = (event)=>{
             if(ref.current && !ref.current.contains(event.target)){
                 navigate('/dashboard');

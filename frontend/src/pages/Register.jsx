@@ -16,7 +16,7 @@ function Register() {
 
 	useEffect(()=>{
 		if(isError) toast.error(message);
-        if(isSuccess || user) navigate('/profilePicture');
+        if(user?.token) navigate('/profilePicture');
         dispatch(reset());
 	},[user,isSuccess,isError,message])
 

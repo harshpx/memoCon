@@ -19,7 +19,7 @@ function Login() {
 
 	useEffect(()=>{
 		if(isError) toast.error(message);
-        if(isSuccess || user) navigate('/dashboard');
+        if(user?.token) navigate('/dashboard');
         dispatch(reset());
 	},[user,isSuccess,isError,message])
 

@@ -8,6 +8,7 @@ import { IoIosAdd } from "react-icons/io";
 import { IoLogoOctocat } from "react-icons/io5";
 import Loader from '../components/Loader';
 import { AnimatePresence, motion } from 'framer-motion';
+import {toast} from 'react-toastify';
 
 function Dashboard() {
 
@@ -30,7 +31,7 @@ function Dashboard() {
             toast.error(message);
             return;
         }
-        if(!user) {
+        if(!user?.token) {
             navigate('/');
             return;
         }
