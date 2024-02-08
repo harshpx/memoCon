@@ -110,7 +110,7 @@ const dataURLtoFile = (dataurl, filename) => {
         formData.append('file',fileData);
         formData.append('upload_preset',`${import.meta.env.CLOUD_UPLOAD_PRESET}`);
         formData.append('cloud_name',`${import.meta.env.CLOUD_NAME}`);
-        axios.post('https://api.cloudinary.com/v1_1/dgx2etbfc/image/upload',formData)
+        fetch('https://api.cloudinary.com/v1_1/dgx2etbfc/image/upload',{method:"post",body:formData})
         .then(response=>response.json())
         .then(response=>dispatch(userProfilePicture(response.url)))
         .catch(error=>console.log(error))
