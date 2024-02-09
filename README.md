@@ -7,9 +7,27 @@ Memoize is a simple and intuitive notes app designed to help you organize your t
 This app is deploved on <b>Vercel</b>. 
 To get started with Memoize, simply hop onto : [https://memoize-notes.vercel.app/](https://memoize-notes.vercel.app/)
 
+# Screenshots
+### Big Screens: 
+<div>
+<img src='frontend/src/assets/screenshots/1.png' alt="app logo" style="width:400px"/>
+<img src='frontend/src/assets/screenshots/4.png' alt="app logo" style="width:400px"/>
+<img src='frontend/src/assets/screenshots/2.png' alt="app logo" style="width:400px"/>
+<img src='frontend/src/assets/screenshots/3.png' alt="app logo" style="width:400px"/>
+</div>
+
+### Small screens:
+<div style="display:flex">
+<img src='frontend/src/assets/screenshots/5.png' alt="app logo" style="width:200px"/>
+<img src='frontend/src/assets/screenshots/6.png' alt="app logo" style="width:200px"/>
+<img src='frontend/src/assets/screenshots/7.png' alt="app logo" style="width:200px"/>
+</div>
+
+
 # Features in current version
 - User-friendly Interface: Enjoy a clean and intuitive interface that makes taking notes a breeze.
-- Dark and Light modes
+- Responsive design: Adjusts according to your screen for best user experience.
+- Dark and Light modes.
 - Cloud Sync: Seamlessly sync your notes across multiple devices for access anytime, anywhere.
 - Customization: Personalize your notes with different colors to suit your preferences.
 - Add/update profile picture.
