@@ -1,6 +1,6 @@
 <img src='frontend/src/assets/brand-logo/inline-logo-no-background.png' alt="app logo" style="width:500px"/>
 
-# Memoize (1st version)
+# Memoize (Version 1.0)
 Memoize is a simple and intuitive notes app designed to help you organize your thoughts, ideas, and tasks effortlessly. With its clean and minimalist interface, Memoize makes it easy to jot down notes and stay organized, whether you're at work, school, or on the go.
 
 # Getting Started
@@ -18,8 +18,8 @@ To get started with Memoize, simply hop onto : [https://memoize-notes.vercel.app
 This project is a full-stack web application built on <b>MERN stack</b>, with  <b>React.js</b> for the front end, <b>Express.js</b> for the Server/API, and <b>MongoDB</b> as the database. The application provides a robust framework for creating dynamic and interactive user interfaces while handling data storage and retrieval efficiently.
 
 ### Libraries used: 
-- <b>Frontend:</b> React JS, React-Router, Redux-Toolkit, Tailwind CSS, Framer Motion <br>
-(React JS for building entire frontend, React-Router for frontend page routing, Redux-Toolkit for state management, Tailwind CSS for designing UI, Framer Motion for smooth-animated page transitions)
-- <b>Server:</b> Express JS, Mongoose, Axios, bCrypt, JWT <br>
-(Express JS for building server and defining API endpoints, Mongoose for defining MongoDB collection and schema, Axios for sending requests to respective endpoints and retrieving response, bCrypt for hashing passwords and note's text, JWT for user authentication)
-- <b>Backend:</b> MongoDB as Database
+- #### <b>Frontend:</b> React JS, React-Router, Redux-Toolkit, Tailwind CSS, Framer Motion <br>
+  (React JS for building entire frontend, React-Router for frontend page routing, Redux-Toolkit for state management, Tailwind CSS for designing UI, Framer Motion for smooth-animated page transitions)
+- #### <b>Server:</b> Express JS, Mongoose, Axios, bCrypt, JWT <br>
+    (Express JS for building server and defining API endpoints, Mongoose for defining MongoDB collection and schema, Axios for sending requests to respective endpoints and retrieving response, bCrypt for hashing passwords and note's text, JWT for user authentication)
+- #### <b>Backend:</b> MongoDB as Database
