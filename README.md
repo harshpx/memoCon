@@ -20,6 +20,7 @@ To get started with Memoize, simply hop onto : [https://memoize-notes.vercel.app
 <div style="display:flex">
 <img src='frontend/src/assets/screenshots/5.png' alt="app logo" style="width:200px"/>
 <img src='frontend/src/assets/screenshots/6.png' alt="app logo" style="width:200px"/>
+<img src='frontend/src/assets/screenshots/8.png' alt="app logo" style="width:200px"/>
 <img src='frontend/src/assets/screenshots/7.png' alt="app logo" style="width:200px"/>
 </div>
 
