@@ -18,8 +18,8 @@ To get started with Memoize, simply hop onto : [https://memoize-notes.vercel.app
 This project is a full-stack web application built on <b>MERN stack</b>, with  <b>React.js</b> for the front end, <b>Express.js</b> for the Server/API, and <b>MongoDB</b> as the database. The application provides a robust framework for creating dynamic and interactive user interfaces while handling data storage and retrieval efficiently.
 
 ### Libraries used: 
-- Frontend: React JS, React-Router, Redux-Toolkit, Tailwind CSS, Framer Motion <br>
+- <b>Frontend:</b> React JS, React-Router, Redux-Toolkit, Tailwind CSS, Framer Motion <br>
 (React JS for building entire frontend, React-Router for frontend page routing, Redux-Toolkit for state management, Tailwind CSS for designing UI, Framer Motion for smooth-animated page transitions)
-- Server: Express JS, Mongoose, Axios, bCrypt, JWT <br>
+- <b>Server:</b> Express JS, Mongoose, Axios, bCrypt, JWT <br>
 (Express JS for building server and defining API endpoints, Mongoose for defining MongoDB collection and schema, Axios for sending requests to respective endpoints and retrieving response, bCrypt for hashing passwords and note's text, JWT for user authentication)
-- Backend: MongoDB as Database
+- <b>Backend:</b> MongoDB as Database
