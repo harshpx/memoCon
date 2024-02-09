@@ -9,6 +9,7 @@ To get started with Memoize, simply hop onto : [https://memoize-notes.vercel.app
 
 # Features in current version
 - User-friendly Interface: Enjoy a clean and intuitive interface that makes taking notes a breeze.
+- Dark and Light modes
 - Cloud Sync: Seamlessly sync your notes across multiple devices for access anytime, anywhere.
 - Customization: Personalize your notes with different colors to suit your preferences.
 - Add/update profile picture.
