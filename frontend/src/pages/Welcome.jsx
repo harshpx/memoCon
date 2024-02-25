@@ -38,6 +38,7 @@ function Welcome({key}) {
                             <button className='m-1 py-2.5 px-3 bg-theme rounded-2xl transition-all duration-300 hover:scale-105 hover:bg-neutral-400' onClick={()=>navigate('/register')}>Signup</button>
                         </div>
                     </div>
+                    <div className='absolute bottom-3 text-neutral-700 dark:text-neutral-300'>Made with &hearts; by Harsh Priye</div>
                 </div>
             </div>
     )
